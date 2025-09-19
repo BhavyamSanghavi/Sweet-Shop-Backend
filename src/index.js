@@ -8,6 +8,8 @@ const morgan = require("morgan");
 
 const authRoutes = require("./routes/auth");
 const errorHandler = require("./middleware/error.middleware");
+const sweetsRoutes = require("./routes/sweets");
+const inventoryRoutes = require("./routes/inventory");
 
 const app = express();
 
@@ -19,6 +21,8 @@ app.use(morgan("combined"));     // HTTP request logging
 
 // --- Routes ---
 app.use("/api/auth", authRoutes);
+app.use("/api/sweets", sweetsRoutes);
+app.use("/api/sweets", inventoryRoutes);
 
 // Health check
 app.get("/health", (req, res) => {
